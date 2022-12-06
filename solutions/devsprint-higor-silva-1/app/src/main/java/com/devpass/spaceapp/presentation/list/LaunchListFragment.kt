@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.devpass.spaceapp.R
 import com.devpass.spaceapp.databinding.FragmentLaunchListBinding
+import com.devpass.spaceapp.presentation.adapters.CustomAdapter
 
 class LaunchListFragment : Fragment() {
 
@@ -22,6 +24,11 @@ class LaunchListFragment : Fragment() {
             container,
             false
         )
+
+        val recyclerView = binding.recyclerView
+        val adapter = CustomAdapter(arrayOf("a", "b", "c"))
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
 
         return binding.root
     }
